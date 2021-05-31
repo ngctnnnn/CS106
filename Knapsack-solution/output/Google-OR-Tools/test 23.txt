@@ -1,0 +1,6 @@
+File name: data/02StronglyCorrelated/8/R01000/s045.kp
+Execution time: 180.98386430740356 sec
+Capacity = 2483759 
+Total weight = 2483333 
+Total value = 3186133 
+Number of items: 7028 

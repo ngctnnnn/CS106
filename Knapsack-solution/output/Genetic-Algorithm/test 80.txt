@@ -1,0 +1,8 @@
+File name: data/09SpannerStronglyCorrelated/8/R01000/s020
+Generation: 339 
+Executed time = 2.797602415084839 sec 
+Best genes = [0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1] 
+Best solution = 19601.0 
+Max capacity = 12108
+Total weight = 12101 
+Total value = 19601 

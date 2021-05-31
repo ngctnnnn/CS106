@@ -1,0 +1,8 @@
+File name: <bound method Knapsack01Problem.get_file_name of <Knapsack.Knapsack01Problem object at 0x7f95c2a5df70>>
+Generation: 424 
+Executed time = 1.8786900043487549 sec 
+Best genes = [0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1] 
+Best solution = 19406.0 
+Max capacity = 12847
+Total weight = 12785 
+Total value = 19406 

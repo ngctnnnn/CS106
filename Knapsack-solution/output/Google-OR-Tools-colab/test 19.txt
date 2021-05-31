@@ -1,0 +1,6 @@
+File name: data/02StronglyCorrelated/4/R01000/s033
+Execution time: 180.02820873260498 sec
+Capacity = 123559 
+Total weight = 123362 
+Total value = 158662 
+Number of items: 353 

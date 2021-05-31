@@ -1,0 +1,6 @@
+File name: data/01WeaklyCorrelated/7/R10000/s077
+Execution time: 1.1271746158599854 sec
+Capacity = 12197820 
+Total weight = 12197819 
+Total value = 13508865 
+Number of items: 2578 

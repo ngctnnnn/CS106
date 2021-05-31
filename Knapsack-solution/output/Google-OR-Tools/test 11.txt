@@ -1,0 +1,6 @@
+File name: data/01WeaklyCorrelated/4/R10000/s023
+Execution time: 0.9234743118286133 sec
+Capacity = 1281301 
+Total weight = 1281298 
+Total value = 1402325 
+Number of items: 247 

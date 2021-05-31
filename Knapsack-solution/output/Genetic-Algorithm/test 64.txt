@@ -1,0 +1,8 @@
+File name: data/07SpannerUncorrelated/8/R10000/s060
+Generation: 463 
+Executed time = 3.7253830432891846 sec 
+Best genes = [1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1] 
+Best solution = 109210.0 
+Max capacity = 61920
+Total weight = 61640 
+Total value = 109210 

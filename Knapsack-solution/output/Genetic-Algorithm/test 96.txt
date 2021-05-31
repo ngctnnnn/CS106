@@ -1,0 +1,8 @@
+File name: data/11ProfitCeiling/8/R10000/s048
+Generation: 755 
+Executed time = 5.988116025924683 sec 
+Best genes = [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1] 
+Best solution = 8462431.0 
+Max capacity = 126943
+Total weight = 126943 
+Total value = 8462431 

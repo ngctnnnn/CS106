@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\usepackage[ruled, lined, linesnumbered, commentsnumbered, longend]{algorithm2e}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[]{algorithm2e}
+\usepackage[english]{babel}
+\usepackage[square,numbers]{natbib}
+\usepackage[colorlinks, citecolor = black, urlcolor = gray, bookmarks = false, hypertexnames = true ]{hyperref} 
+\bibliographystyle{abbrvnat}
+\usepackage{scrextend}
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\usepackage[a4paper, total={170mm,257mm},left=20mm,right=20mm, top=20mm,]{geometry}
+\title{\textbf{Report for Knapsack solution}\\ with Genetic Algorithm and Google OR-Tools}
+\author{\textbf{Tan Ngoc Pham}\\
+Faculty of Computer Science, University of Information Technology\\
+\small 19520925@gm.uit.edu.vn }
+\date{$27^{th}$ March 2021}
+
+\begin{document}
+\maketitle
+
+\section{Experiment set-up}
+\subsection{Data extraction}
+Since there is a great deal of data tests and I can not run through all of them, I created a strategy to randomly get the test cases from the original data set, which is:
+\begin{itemize}
+    \item I collected all the folder names and put them together into one array called $folder\_name$.
+    \item Then with each folder in the folder array, I changed the name of sub folder into number from $1$ to $8$ corresponded to its order in the original folder. 
+    \item After that, I run through each sub folder \textit{from $1$ to $8$}. In each sub folder, I random one number between $\left[0;1\right]$, if that number is greater or equal to $0.5$, I would choose the folder $R01000$, or else I would choose the rest.
+    \item Finally, I will random one integer in $\left[10; 99\right]$ as the test file number, which shares the format as \textit{s0**.kp}, s.t. ** stands for the integer randomized.
+\end{itemize}
+\subsection{Genetic Algorithm \cite{genetic-algo}}
+I did use the source code of \textit{simple Evolution Algorithm} from DEAP framework with some minor changes in order to fit my desire for this experiment.\\
+
+First of all, about the constants, I have chosen necessary constants as below:
+    \begin{center}
+        POPULATION SIZE $= 100$\\
+        P CROSSOVER $= 0.9$ \\
+        P MUTATION $= 0.3$   \\
+        MAX GENERATIONS $= \infty$\\
+    \end{center}
+    
+I did not choose a limitation for the Genetic Algorithm since I want the algorithm executes until the event of convergence. The convergence conditions are described as follow:
+\begin{enumerate}
+    \item If 300 continuous iterations share the same max values or have the max value less than the previous one, then the algorithm is considered to be converged
+    \item If the algorithm has been executing in 3 minutes without a stop, then the algorithm will end up
+\end{enumerate}
+\subsection{Google OR-Tools \cite{ortools}}
+Also, I used the knapsack solving tool from Google OR-Tools. Since this is a closed source, then I have fewer things to privately customize.\\
+
+Hence, there are only $2$ converged conditions in the Google OR-Tools, which are:
+\begin{enumerate}
+    \item The algorithm is considered as converged if the solver has solved the problem with an optimal solution.
+    \item Besides, it also stops if there is no optimal solution after 3 minutes
+\end{enumerate}
+
+Output for both Genetic Algorithm and Google OR-Tools session are all kept in the folder \textbf{output}
+\section{Brief performance comparison between GA and OR-Tools}
+\subsection{In general}
+I chose Google Colab to run 2 these algorithms for its power and non-computer memory needs to execute. Hence, two algorithms have the the same base to compare without a fear of unfairness.
+\subsection{In details}
+I might split this section into 3 phases, which are comparison in the event of \textit{\textbf{small}}
+input data, \textit{\textbf{medium}} input data and \textit{\textbf{large}} input data. The reason behind the data splitting thing is due to the speed of programs when running the data set. In details, there are 3 clear categories of program's performance while running different input data: immediate response, medium reply and low-level speed. Now let us dive into those:
+\subsubsection{Small input data}
+    With the size of input data is small, which ranges from $50$ items to $500$ items. There is a strong evidence that the Google OR-Tools has exceeded the Genetic Algorithm completely in both speed and accuracy aspects. \\
+    Let us take a closer look by taking randomly 4 of typical checkpoints, which are 50, 100, 150 and 200 respectively, which have the detailed data below: 
+    \begin{center}
+        \begin{tabular}{|c|c| c|c| c|c| c|c| c|c|}
+        \hline
+            Input& File& No. & Max& \multicolumn{2}{c|}{GA} & \multicolumn{2}{c|}{OR-Tools}\\
+            no.&link& of items &capacity& Total weight & Total value & Total weight & Total value\\
+        \hline
+            1 & 00/1/R01000/s085.kp & 50 & 12 847 & 12 785 & 19 406 & 12 818 & 19 500\\
+            40 & 05/1/R01000/s014.kp & 50 & 11 824 & 11 824 & 11 824 & 11 824 & 11 824\\
+            41 & 05/2/R01000/s076.kp & 100 & 242 434 & 242 434 & 242 434 & 242 434 & 242 434\\
+            9 & 01/2/R01000/s072.kp & 100 & 25 041 & 25 035 & 27 490 & 25 037 & 27 537\\
+            3 & 00/3/R01000/s084.kp & 200 & 125 716 & 125 664 & 202 905 & 125 715 & 205 566\\
+            52 & 06/4/R01000/s038.kp & 500 & 24 765 380 & 24 712 416 & 186 331 & 24 712 395 & 187 781\\
+    \hline
+        \hline 
+        \end{tabular}
+    \end{center}
+    s.t. the first number in the file link column is the folder number in the dataset. \\
+    
+    As a clear and foremost observation through this table, without a doubt we could realize that OR-Tools gives out a surpassing result over Genetic Algorithm. This is since Knapsack's OR Tool gives out optimal solution when it is in the event of small-sized input data.
+\subsubsection{Medium input data}
+When the size of input data is around medium level, which are $1000$ and $2000$ items. One again, we can observe clearly the surpassing power over the Genetic Algorithm from the Knapsack's Google OR-Tools. It has passed all test cases and gives out the more perfect result than Genetic Algorithm does.
+    \begin{center}
+        \begin{tabular}{|c|c| c|c| c|c| c|c| c|c|}
+        \hline
+            Input& File& No. & Max& \multicolumn{2}{c|}{GA} & \multicolumn{2}{c|}{OR-Tools}\\
+            no.&link& of items &capacity& Total weight & Total value & Total weight & Total value\\
+        \hline
+            52 & 06/5/R10000/s084.kp & 1000 & 49 529 018 & 49 523 477 & 379 703 & 49 523 476 & 381 720\\
+            20 & 02/5/R10000/s069.kp & 1000 & 2 449 426 & 2 449 317 & 3 093 317 & 2 446 433 & 3 151 433\\
+            53 & 06/6/R01000/s079.kp & 2000 & 99 059 444 & 99 049 531 & 711 574 & 99 048 931 & 738 207\\
+            61 & 07/6/R10000/s078.kp & 2000 & 4 176 879 & 4 176 272 & 3 540 666 & 4 176 480 & 3 679 280\\
+            21 & 02/6/R10000/s070.kp & 2000 & 4 936 244 & 4 936 241 & 6 194 241 & 4 933 776 & 6 341 776\\
+        \hline
+        \hline 
+        \end{tabular}
+    \end{center}
+\subsubsection{Large input data}
+Finally, when the input size reaches the huge amount of items, which is $5000$ or $10 000$ items. The difference is shown quite clear when running on my laptop that though solutions are still given from the Genetic Algorithm normally but with just a slower speed. But from test case number 26 until the end of data set, the Knapsack's OR-Tools solutions barely give out any solution due to the overflow of memory in the processor.\\
+
+This problem, fortunately, is solved when I brought these algorithms to Google Colaboratory to do the experiment more effectively without a fear of memory exceeded. Although there are still some of the tests unworkable, the result is still sufficient enough to report my experiment. On my first thought when doing this experiment, I did have a strong feeling of Genetic Algorithm might get a benefit over the Google OR-Tools when it comes to large input data. However, on the contrary, once a test case is solved by the Google OR-Tools, it would give out more encouraged output than the Genetic Algorithm's despite with a little shift. \\
+
+For a further understanding, let consider the table:
+    \begin{center}
+        \begin{tabular}{|c|c| c|c| c|c| c|c| c|c|}
+        \hline
+            Input& File& No. & Max& \multicolumn{2}{c|}{GA} & \multicolumn{2}{c|}{OR-Tools}\\
+            no.&link& of items &capacity& Total weight & Total value & Total weight & Total value\\
+        \hline
+            22 & 02/7/R10000/s092.kp & 5000 & 12 252 595 & 12 252 426 & 15 062 426 & 12 249 869 & 15 769 869\\
+            94 & 11/7/R10000/s068.kp & 5000 & 12485707 & 12 485 706 & 12 483 588 & 12 485 707 & 12 485 235\\
+            79 & 09/8/R01000/s020.kp & 10 000 & 1 946 495 & 1 946 468 & 4 704 868 & 1 946 474 & 4 996 174\\
+            23 & 02/8/R10000/s045.kp & 10 000 & 2 483 759 & 2 483 749 & 3 010 549 & 2 483 333 & 3 186 133\\
+            95 & 11/8/R10000/s048.kp & 10 000 & 25 064 634 & 25 064 634 & 25 060 107 & 25 064 633 & 25 063 698\\
+        \hline
+        \hline 
+        \end{tabular}
+    \end{center}
+\subsection{Conclusion}
+From \textbf{2.2.1}, \textbf{2.2.2} and \textbf{2.2.3}, we can jump into a quick and most foreseeable conclusion of performance between Genetic Algorithm and Google OR-Tools is that Google OR-Tools has excelled the DEAP's simple genetic algorithm framework in all the test cases about the accuracy.\\
+
+However, one minor thing might make the DEAP's eaSimple still get a position when it is compare between two these methods is that GA did solve and give out the answer to \textbf{every single} test case, meanwhile there are some big test cases make OR-Tools difficult in solving and there is no solution for those test at all.\\
+
+In addition, there is one fact about Knapsack solution from Google OR-Tools is that the huge amount of input data is not the primary factor of which failed the knapsack's solution tool. It is also about the correlant between numbers in data set. It is a clear observation that in the folder $12$, even with small number of items, e.g. $50$ or $100$, the solving tool from Google can not handle those. But at the same time, the Genetic Algorithm can solve them without a difficulty.\\
+
+Hence, there is a scientific base to say that despite the enormous power from Google, the Knapsack solving's Google-OR Tools by far is neither the best nor the most optimal tool for solving the Knapsack problem. There is many pros and cons to which both Genetic Algorithm and Google OR-Tools share each other in solving such a problem. We can not tell that which method is exceptionally better than which. The only thing we can tell is that which method is more suitable for the test and which method is less appropriate for the same one.
+\bibliography{ref}
+\end{document}

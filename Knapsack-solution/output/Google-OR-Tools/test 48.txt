@@ -1,0 +1,13 @@
+File name: data/06UncorrelatedWithSimilarWeights/1/R01000/s064.kp
+Execution time: 2.002267837524414 sec
+Capacity = 2476548 
+Total weight = 2401167 
+Total value = 17718 
+Number of items: 24 
+Execution time: 2.002267837524414 sec
+Capacity = 2476548 
+Total weight = 2401167 
+Total value = 17718 
+Number of items: 24 
+Packed items: [0, 1, 3, 5, 6, 7, 8, 10, 11, 13, 15, 17, 22, 25, 26, 29, 30, 34, 41, 42, 44, 46, 47, 49] 
+Packed weights: 24

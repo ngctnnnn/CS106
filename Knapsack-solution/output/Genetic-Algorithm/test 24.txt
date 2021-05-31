@@ -1,0 +1,8 @@
+File name: data/02StronglyCorrelated/8/R01000/s045
+Generation: 584 
+Executed time = 3.568254232406616 sec 
+Best genes = [0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1] 
+Best solution = 123983.0 
+Max capacity = 140983
+Total weight = 140983 
+Total value = 123983 

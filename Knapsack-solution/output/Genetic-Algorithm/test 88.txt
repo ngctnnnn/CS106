@@ -1,0 +1,8 @@
+File name: data/10MultipleStronglyCorrelated/8/R10000/s089
+Generation: 312 
+Executed time = 2.404463529586792 sec 
+Best genes = [1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1] 
+Best solution = 11190.0 
+Max capacity = 11205
+Total weight = 11205 
+Total value = 11190 

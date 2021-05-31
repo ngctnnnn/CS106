@@ -1,0 +1,6 @@
+File name: data/02StronglyCorrelated/5/R10000/s069.kp
+Execution time: 180.288147687912 sec
+Capacity = 2449426 
+Total weight = 2446433 
+Total value = 3151433 
+Number of items: 705 

@@ -1,0 +1,6 @@
+File name: data/02StronglyCorrelated/1/R01000/s070
+Execution time: 1.989180326461792 sec
+Capacity = 13391 
+Total weight = 13391 
+Total value = 16791 
+Number of items: 34 

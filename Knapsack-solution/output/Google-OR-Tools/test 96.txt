@@ -1,0 +1,13 @@
+File name: data/12Circle/1/R10000/s037.kp
+Execution time: 23.07920265197754 sec
+Capacity = 126943 
+Total weight = 126943 
+Total value = 8462439 
+Number of items: 18 
+Execution time: 23.07920265197754 sec
+Capacity = 126943 
+Total weight = 126943 
+Total value = 8462439 
+Number of items: 18 
+Packed items: [3, 4, 8, 14, 16, 18, 23, 24, 26, 31, 33, 34, 38, 42, 43, 44, 45, 47] 
+Packed weights: 18

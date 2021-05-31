@@ -1,0 +1,6 @@
+File name: data/00Uncorrelated/6/R10000/s051
+Execution time: 0.12134361267089844 sec
+Capacity = 4960385 
+Total weight = 4960376 
+Total value = 8182011 
+Number of items: 1240 

@@ -1,0 +1,6 @@
+File name: data/03InverseStronglyCorrelated/3/R01000/s067.kp
+Execution time: 181.96511316299438 sec
+Capacity = 59696 
+Total weight = 59696 
+Total value = 53296 
+Number of items: 64 

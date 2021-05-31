@@ -1,0 +1,6 @@
+File name: data/01WeaklyCorrelated/2/R01000/s072
+Execution time: 0.9098834991455078 sec
+Capacity = 25041 
+Total weight = 25037 
+Total value = 27537 
+Number of items: 55 
