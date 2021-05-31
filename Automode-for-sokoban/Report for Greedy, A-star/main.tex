@@ -1,0 +1,73 @@
+\documentclass{article}
+\date{April 2021}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage[ruled, lined, linesnumbered, commentsnumbered, longend]{algorithm2e}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage[]{algorithm2e}
+\usepackage[a4paper, total={170mm,257mm},left=25mm,right=25mm, top=20mm,]{geometry}
+\title{Report for Sokoban game solution with Path-finding Algorithms (pt. 2)}
+\author{\textbf{Tan Ngoc Pham}\\
+Faculty of Computer Science, University of Information Technology\\
+\small 19520925@gm.uit.edu.vn }
+\date{March 2021}
+
+\begin{document}
+
+\maketitle
+\section{Greedy Search}
+
+\subsection{Naive greedy search}
+I have constructed my "naive" greedy search algorithm by putting a discounting factor $\gamma$ into the cost function as:
+\begin{equation*}
+    CostFunction \cdot \gamma
+\end{equation*}
+
+The discount factor can be recognized as the discount factor in Q-learning, which is used to prioritize shorter paths.\\
+
+And experimentally, with the use of $\gamma = 0.7$, it take off encouraged results in comparison with the uniform cost search. In details, despite the fact that two algorithms itself might give the same answer, the greedy search finds an answer with a faster time.
+
+\subsection{Euclidean greedy search}
+In substitution of using naive greedy search, I use the formula to calculate the euclidean distance from the box to the goal as the heuristic. The euclidean distance is given as below:
+\begin{equation*}
+    d(box, goal) = \sqrt{(goal.x - box.x)^2 + (goal.y - box.y)^2}
+\end{equation*}
+s.t. $(x, y)$ is the \textit{x-axis} and \textit{y-axis} for the respective coordinate of the mentioned object.\\
+
+This search algorithm gives out more encouraging result in comparison with the naive greedy search in terms of speed. Most of the answers are given under 0.5 seconds with easy maps and under 2 seconds with hard maps.
+
+\subsection{Mahattan greedy search}
+Here I use the Mahattan distance to calculate the distance from the box to the goal, the formula is shown as below:
+\begin{equation*}
+    d(box, goal) = \abs{goal.x - box.x} + \abs{goal.y - box.y}
+\end{equation*}
+For the first thought, I have expected this scale of distance measuring would be better than the euclidean. However, its performance is the same as the one of euclidean or sometimes worse.
+
+\subsection{All-in-one greedy search}
+In the final trial, I have thought of combining all the three different greedy methods I have used so far through this section into one algorithm. The distance from the box to the goal is defined as follow:
+\begin{equation*}
+    d(box, goal) = \left(\sqrt{(goal.x - box.x)^2 + (goal.y - box.y)^2} + \abs{goal.x - box.x} + \abs{goal.y - box.y}\right)\cdot \gamma 
+\end{equation*}
+s.t. $(x, y)$ is the \textit{x-axis} and \textit{y-axis} for the respective coordinate of the mentioned object and $\gamma = 0$.\\
+
+This result is taken off relatively when the time finishing both easy and hard maps is all under 1 seconds, however, there are still unsolvable maps like map 5.
+\section{A-star (\textit{A*}) Search}
+The A* search algorithm itself consists of two different heuristic functions for only one algorithm. The first one is the heuristic to calculate the cost for Sokoban in each iteration. And the other one is the heuristic to estimate the distance from the boxes to the goals.\\
+
+The first heuristic is illustrated as follow:
+\begin{equation*}
+    CostFunction = \sum cost_{iteration}
+\end{equation*}
+
+And the second one is defined as:
+\begin{equation*}
+    d(box, goal) = \sqrt{(goal.x - box.x)^2 + (goal.y - box.y)^2}
+\end{equation*}
+\textbf{s.t.} $(x, y)$ is the \textit{x-axis} and \textit{y-axis} for the respective coordinate of the mentioned object.\\
+
+The algorithm itself is considered to be far better in comparison to other path-finding algorithms, and it is. A-star surpassed others with its speed and solution. Almost all the solutions are given under one second, and all the solutions it produces are among the best throughout the beginning. \\
+
+As far as we can see, the A* algorithm is by far the best path-finding algorithm in both speed and accuracy fields.
+\end{document}
