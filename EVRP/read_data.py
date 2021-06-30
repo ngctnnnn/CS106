@@ -31,13 +31,13 @@ def read_data(file):
 
     #Demand for each node 
     for i in range(DIMENSION):
-        DEMAND.append(input_data[43 + i].split(" ")[1])
-
+        DEMAND.append(input_data[12 + DIMENSION + STATIONS + i + 1].split(" ")[1])
+    # print(DEMAND)
     #Depot coordinate
     DEPOT = ((input_data[75]), (input_data[76]))
 
     #Write file
-    os.system('touch preprocess_benchmark/' + file)
+    # os.system('touch preprocess_benchmark/' + file)
     new_file = open("preprocess_benchmark/" + file, mode="w", encoding="utf-8")
     new_file.write(str(NUM_VEHICLE) +"\n")
     new_file.write(str(DIMENSION) + "\n")
@@ -47,8 +47,10 @@ def read_data(file):
     new_file.write(str(ENERGY_CONSUMPTION) + "\n")
     for i, j in NODE_COORD:
         new_file.write(str(i) + " " + str(j) + "\n")
+
     for i, j in STATION_COORD:
         new_file.write(str(i) + " " + str(j) + "\n")
+    
     for i in DEMAND:
         new_file.write(str(i)+ "\n") 
 
@@ -73,3 +75,5 @@ file_name=["benchmark/E-n101-k8.evrp",
 for text in file_name:
     print(text)
     read_data(text)
+# print(file_name[2])
+# read_data(file_name[2])
