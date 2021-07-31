@@ -17,6 +17,6 @@ plt.plot(y, x, color='g')
 
 
 plt.xlim(-20, 5000)
-plt.ylim(400, 500)
+plt.ylim(min(mean)-100, max(mean)+100)
 
 plt.show()
